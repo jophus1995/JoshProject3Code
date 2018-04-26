@@ -144,13 +144,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private TextArea passOutput;
-    
+
     @FXML
     private Tab sysAdminTab;
-    
-    @FXML 
+
+    @FXML
     private TextField payAssCus;
-    
+
     @FXML
     private TextArea loginTextArea;
 
@@ -168,7 +168,7 @@ public class FXMLDocumentController implements Initializable {
         warehouseManagerTab.setDisable(true);
         passwordResetTab.setDisable(true);
         salesAssociateTab.setDisable(true);
-        SysAdmin admin = new SysAdmin("admin","admin","admin","admin","minda","s");
+        SysAdmin admin = new SysAdmin("admin", "admin", "admin", "admin", "minda", "s");
         SysAdmin.accounts.add(admin);
     }
 
@@ -179,53 +179,53 @@ public class FXMLDocumentController implements Initializable {
         Login l = null;
         for (int i = 0; i < SysAdmin.accounts.size(); i++) {
             if (SysAdmin.accounts.get(i).getUserName().equals(userName) && SysAdmin.accounts.get(i).getPassword().equals(password)) {
-                if(SysAdmin.accounts.get(i).getUserType().equals("s")) {
-                l = SysAdmin.accounts.get(i);
-                if (l instanceof SysAdmin) 
-                    loginTab.setDisable(true);
+                if (SysAdmin.accounts.get(i).getUserType().equals("s")) {
+                    l = SysAdmin.accounts.get(i);
+                    if (l instanceof SysAdmin) {
+                        loginTab.setDisable(true);
+                    }
                     sysAdminTab.setDisable(false);
                     officeManagerTab.setDisable(true);
                     warehouseManagerTab.setDisable(true);
                     passwordResetTab.setDisable(false);
                     salesAssociateTab.setDisable(true);
-                }
-                else if(SysAdmin.accounts.get(i).getUserType().equals("o")) {
+                } else if (SysAdmin.accounts.get(i).getUserType().equals("o")) {
                     l = accounts.get(i);
-                    if (l instanceof WHManager) 
-                    loginTab.setDisable(true);
+                    if (l instanceof WHManager) {
+                        loginTab.setDisable(true);
+                    }
                     sysAdminTab.setDisable(true);
                     officeManagerTab.setDisable(false);
                     warehouseManagerTab.setDisable(true);
                     passwordResetTab.setDisable(false);
                     salesAssociateTab.setDisable(true);
-                        }
-                else if(SysAdmin.accounts.get(i).getUserType().equals("w")) {
+                } else if (SysAdmin.accounts.get(i).getUserType().equals("w")) {
                     l = accounts.get(i);
-                    if (l instanceof OfficeManager)
-                    loginTab.setDisable(true);
+                    if (l instanceof OfficeManager) {
+                        loginTab.setDisable(true);
+                    }
                     sysAdminTab.setDisable(true);
                     officeManagerTab.setDisable(true);
                     warehouseManagerTab.setDisable(false);
                     passwordResetTab.setDisable(false);
                     salesAssociateTab.setDisable(true);
-                        }
-                else if(SysAdmin.accounts.get(i).getUserType().equals("a")) {
+                } else if (SysAdmin.accounts.get(i).getUserType().equals("a")) {
                     l = accounts.get(i);
-                    if (l instanceof SalesAssociate)
-                    loginTab.setDisable(true);
+                    if (l instanceof SalesAssociate) {
+                        loginTab.setDisable(true);
+                    }
                     sysAdminTab.setDisable(true);
                     officeManagerTab.setDisable(true);
                     warehouseManagerTab.setDisable(true);
                     passwordResetTab.setDisable(false);
                     salesAssociateTab.setDisable(false);
-                    }
                 }
             }
+        }
     }
-    
-
 
     ArrayList<BikePart> bps = new ArrayList<>();
+
     @FXML
     void officeFindLow(ActionEvent event) {
         for (BikePart bp : IDS) {
@@ -269,7 +269,7 @@ public class FXMLDocumentController implements Initializable {
         officeOutput.setText("Ordered parts");
     }
 
-@FXML
+    @FXML
     void officePayAssociate(ActionEvent event) {
         String customer = officePayName.getText();
         String range = officeStartEnd.getText();
@@ -355,7 +355,7 @@ public class FXMLDocumentController implements Initializable {
         warehouseManagerTab.setDisable(true);
         passwordResetTab.setDisable(true);
         salesAssociateTab.setDisable(true);
-        
+
     }
 
     @FXML
@@ -365,18 +365,18 @@ public class FXMLDocumentController implements Initializable {
         passOutput.setText("Password reset");
         Login d = Accounts.userValidate(userName);
         {
-     try{
-          d.setPassword(passwordNewPass.getText());
-          File file =new File("Accounts.txt");
-    	  FileWriter fw = new FileWriter(file);
-    	  PrintWriter pw = new PrintWriter(fw);
-          pw.println(d.toStringLogin());
-    	  pw.close();
-       }catch(IOException ioe){
-    	   System.out.println("Exception occurred:");
-    	   ioe.printStackTrace();
-      }
-   }
+            try {
+                d.setPassword(passwordNewPass.getText());
+                File file = new File("Accounts.txt");
+                FileWriter fw = new FileWriter(file);
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(d.toStringLogin());
+                pw.close();
+            } catch (IOException ioe) {
+                System.out.println("Exception occurred:");
+                ioe.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -385,21 +385,22 @@ public class FXMLDocumentController implements Initializable {
         Accounts.userValidate(userName).setEmail(passwordEmail.getText());
         passOutput.setText("Email reset");
         Login d = Accounts.userValidate(userName);
-            {
-     try{
-          d.setEmail(passwordEmail.getText());
-          File file =new File("Accounts.txt");
-    	  FileWriter fw = new FileWriter(file);
-    	  PrintWriter pw = new PrintWriter(fw);
-          pw.println();
-    	  pw.close();
-       }catch(IOException ioe){
-    	   System.out.println("Exception occurred:");
-    	   ioe.printStackTrace();
-      }
-   }
+        {
+            try {
+                d.setEmail(passwordEmail.getText());
+                File file = new File("Accounts.txt");
+                FileWriter fw = new FileWriter(file);
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println();
+                pw.close();
+            } catch (IOException ioe) {
+                System.out.println("Exception occurred:");
+                ioe.printStackTrace();
+            }
+        }
     }
     ArrayList<BikePart> list = new ArrayList<>();
+
     @FXML
     void salesAddPartToSell(ActionEvent event) {
         String[] info = salesPartnameQuantity.getText().split(",");
@@ -411,7 +412,7 @@ public class FXMLDocumentController implements Initializable {
                 list.add(names.get(i));
                 salesPartsTooAddList.setText(salesPartsTooAddList.getText() + (bp.getName() + "," + bp.getQuantity() + "\n"));
             }
-        }  
+        }
     }
 
     @FXML
@@ -584,20 +585,20 @@ public class FXMLDocumentController implements Initializable {
         String username = sysUsername.getText();
         String password = sysPassword.getText();
         String user = "o";
-        SysAdmin.addOfficeManager(fName, lName, email, username, password,user);
+        SysAdmin.addOfficeManager(fName, lName, email, username, password, user);
         sysOutput.setText("Office Manager Created");
-            {
-     try{
-          File file =new File("Accounts.txt");
-    	  FileWriter fw = new FileWriter(file,true);
-    	  PrintWriter pw = new PrintWriter(fw);
-          pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
-    	  pw.close();
-       }catch(IOException ioe){
-    	   System.out.println("Exception occurred:");
-    	   ioe.printStackTrace();
-      }
-   }
+        {
+            try {
+                File file = new File("Accounts.txt");
+                FileWriter fw = new FileWriter(file, true);
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
+                pw.close();
+            } catch (IOException ioe) {
+                System.out.println("Exception occurred:");
+                ioe.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -610,19 +611,19 @@ public class FXMLDocumentController implements Initializable {
         String user = "a";
         SysAdmin.addSalesAssociate(fName, lName, email, username, password, user);
         sysOutput.setText("Sales Associated Created");
-    {
-     try{
-          File file =new File("Accounts.txt");
-    	  FileWriter fw = new FileWriter(file,true);
-    	  PrintWriter pw = new PrintWriter(fw);
-          pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
-    	  pw.close();
-       }catch(IOException ioe){
-    	   System.out.println("Exception occurred:");
-    	   ioe.printStackTrace();
-      }
-   }
- }
+        {
+            try {
+                File file = new File("Accounts.txt");
+                FileWriter fw = new FileWriter(file, true);
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
+                pw.close();
+            } catch (IOException ioe) {
+                System.out.println("Exception occurred:");
+                ioe.printStackTrace();
+            }
+        }
+    }
 
     @FXML
     void sysAddWarehouseManager(ActionEvent event) {
@@ -632,22 +633,28 @@ public class FXMLDocumentController implements Initializable {
         String username = sysUsername.getText();
         String password = sysPassword.getText();
         String user = "w";
-        SysAdmin.addWHManager(fName, lName, email, username, password,user);
+        SysAdmin.addWHManager(fName, lName, email, username, password, user);
         sysOutput.setText("WareHouse Manager Created");
         {
-     try{
-          File file =new File("Accounts.txt");
-    	  FileWriter fw = new FileWriter(file,true);
-    	  PrintWriter pw = new PrintWriter(fw);
-          pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
-    	  pw.close();
-       }catch(IOException ioe){
-    	   System.out.println("Exception occurred:");
-    	   ioe.printStackTrace();
-      }
-   }
+            try {
+                File file = new File("Accounts.txt");
+                FileWriter fw = new FileWriter(file, true);
+                PrintWriter pw = new PrintWriter(fw);
+                pw.println(fName + "," + lName + "," + email + "," + username + "," + password + "," + user); // uses Login toStringLogin()
+                pw.close();
+            } catch (IOException ioe) {
+                System.out.println("Exception occurred:");
+                ioe.printStackTrace();
+            }
+        }
     }
-    
+
+    @FXML
+    void sysDeleteAccount(ActionEvent event) {
+        String username = sysUsername.getText();
+        sysOutput.setText("Account deleted (" + username + " is fired!)");
+    }
+
     @FXML
     void sysLogout(ActionEvent event) {
         loginTab.setDisable(false);

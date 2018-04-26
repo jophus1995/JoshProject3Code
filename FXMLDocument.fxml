@@ -8,6 +8,9 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -36,6 +39,16 @@
                         <TextField fx:id="loginPassword" layoutX="278.0" layoutY="324.0" promptText="password" />
                         <TextArea fx:id="loginTextArea" layoutX="494.0" layoutY="191.0" prefHeight="200.0" prefWidth="200.0" />
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
             </content>
           </Tab>
@@ -58,13 +71,24 @@
                         <TextField fx:id="sysUsername" layoutX="94.0" layoutY="194.0" promptText="username" />
                         <TextField fx:id="sysPassword" layoutX="94.0" layoutY="241.0" promptText="password" />
                         <Button layoutX="20.0" layoutY="285.0" mnemonicParsing="false" onAction="#sysAddOfficemanager" text="Add Office Manager" />
-                        <Button layoutX="94.0" layoutY="337.0" mnemonicParsing="false" onAction="#sysAddSalesAssociate" text="Add Sales Associate" />
+                        <Button layoutX="21.0" layoutY="324.0" mnemonicParsing="false" onAction="#sysAddSalesAssociate" text="Add Sales Associate" />
                         <Label layoutX="552.0" layoutY="14.0" text="Output" />
                         <Label layoutX="533.0" layoutY="276.0" text="Add Sales Van" />
                         <TextField fx:id="sysVanName" layoutX="497.0" layoutY="311.0" promptText="vanname.txt" />
                         <Label layoutX="426.0" layoutY="315.0" text="Van Name" />
                         <Button layoutX="541.0" layoutY="350.0" mnemonicParsing="false" onAction="#sysAddVan" text="Add van" />
+                        <Button layoutX="167.0" layoutY="324.0" mnemonicParsing="false" onAction="#sysDeleteAccount" text="Delete Account" />
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
               </content>
             </Tab>
@@ -105,6 +129,16 @@
                         <TextField fx:id="officeStartEnd" layoutX="502.0" layoutY="326.0" promptText="dd/mm/yyyy,dd/mm/yyyy" />
                         <Button layoutX="532.0" layoutY="360.0" mnemonicParsing="false" onAction="#officePayAssociate" text="Pay Associate" />
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
               </content>
             </Tab>
@@ -126,6 +160,16 @@
                         <TextField fx:id="wareByNumber" layoutX="101.0" layoutY="211.0" promptText="enter part number" />
                         <Button layoutX="127.0" layoutY="250.0" mnemonicParsing="false" onAction="#wareFindPart" text="Find Part Info" />
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
               </content>
             </Tab>
@@ -154,7 +198,18 @@
                         <TextField fx:id="salesIInvName" layoutX="236.0" layoutY="240.0" prefHeight="26.0" prefWidth="114.0" promptText="inventoryname.txt" />
                         <Label layoutX="252.0" layoutY="209.0" text="Parts to Display" />
                         <Button layoutX="255.0" layoutY="284.0" mnemonicParsing="false" onAction="#salesShowParts" text="Show parts" />
+                        <TextField fx:id="payAssCus" layoutX="269.0" layoutY="469.0" promptText="payAssociate,customer" />
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
               </content>
             </Tab>
@@ -181,6 +236,16 @@
                           </items>
                         </SplitMenuButton>
                      </children>
+                     <effect>
+                        <Lighting diffuseConstant="1.42">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
                   </AnchorPane>
               </content>
             </Tab>
